@@ -11,7 +11,7 @@
   "packageManager": "npm@10.8.2",
   "overrides": {
     "react": "$react",
-    "react-dom": "$reactDom"
+    "react-dom": "$react-dom"
   },
   "dependencies": {
     "react": "^19.0.0",

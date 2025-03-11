@@ -1,5 +1,5 @@
 import { auth,signIn, signOut } from "@/auth"
-import {  LogOutIcon } from "lucide-react"
+import {  LogInIcon, LogOutIcon } from "lucide-react"
 import { Button } from "@/components/ui/button";
 import Image from "next/image"
 import Link from "next/link"
@@ -20,9 +20,11 @@ const Navbar = async () => {
             <div className="flex items-center gap-5 text-black">
                 {session && session?.user ? (  
                     <>
-                    <Link className="" href="/startup/create">
-                        <span>Create</span>
-                    </Link>
+                    <Button className="bg-black text-white">
+                        <Link href="/startup/create">
+                            <span>Create</span>
+                        </Link>
+                    </Button>
 
                     <form action={async () => {
                         "use server";
@@ -50,8 +52,11 @@ const Navbar = async () => {
 
                         await signIn("github")
                     }}>
-                        <Button type="submit" className="login">
-                            Login
+                        <Button type="submit" className="flex justify-center items-center gap-1 cursor-pointer text-white">
+                        <span className="">
+                                login
+                            </span>
+                            <LogInIcon className="size-5"/>
                         </Button>
                     </form>
                 )

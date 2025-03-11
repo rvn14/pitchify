@@ -1,3 +1,4 @@
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
@@ -9,7 +10,13 @@ const nextConfig = {
           }
       ]
   },
-
+  experimental: {
+    ppr: 'incremental'
+    
+  },
+  devIndicators: {
+    appIsStatus: true,
+  }
 
 };
 

@@ -1,4 +1,6 @@
 import { auth,signIn, signOut } from "@/auth"
+import {  LogOutIcon } from "lucide-react"
+import { Button } from "@/components/ui/button";
 import Image from "next/image"
 import Link from "next/link"
 
@@ -18,7 +20,7 @@ const Navbar = async () => {
             <div className="flex items-center gap-5 text-black">
                 {session && session?.user ? (  
                     <>
-                    <Link href="/startup/create">
+                    <Link className="" href="/startup/create">
                         <span>Create</span>
                     </Link>
 
@@ -27,13 +29,16 @@ const Navbar = async () => {
 
                         await signOut({redirectTo: "/"})
                     }}>
-                        <button type="submit" className="login">
-                            <span>Logout</span>
-                        </button>
+                        <Button type="submit" className=" flex justify-center items-center gap-1 cursor-pointer text-white">
+                            <span className="">
+                                logout
+                            </span>
+                            <LogOutIcon className="size-5"/>
+                        </Button>
                     </form>
                     
                     <Link href={`/user/${session?.user.id}`} >
-                        <div className="flex items-center">
+                        <div className="flex items-center rounded-full">
                             <Image className="rounded-full" src={`${session?.user.image}`} width={40} height={40} alt="user-image" />
                         </div>
                     </Link>
@@ -45,9 +50,9 @@ const Navbar = async () => {
 
                         await signIn("github")
                     }}>
-                        <button type="submit" className="login">
+                        <Button type="submit" className="login">
                             Login
-                        </button>
+                        </Button>
                     </form>
                 )
                 }

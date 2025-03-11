@@ -5,9 +5,7 @@ import Link from "next/link"
 const Navbar = async () => {
 
     const session = await auth()
-    
-    const [fname, lname] = session?.user?.name?.split(" ") || ["", ""]
-        
+           
     
     
   return (
@@ -35,8 +33,8 @@ const Navbar = async () => {
                     </form>
                     
                     <Link href={`/user/${session?.user.id}`} >
-                        <div className="flex flex-col items-center">
-                        <Image className="rounded-full" src={`${session?.user.image}`} width={40} height={40} alt="user-image" />
+                        <div className="flex items-center">
+                            <Image className="rounded-full" src={`${session?.user.image}`} width={40} height={40} alt="user-image" />
                         </div>
                     </Link>
                     </>

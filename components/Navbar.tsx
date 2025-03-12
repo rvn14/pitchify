@@ -7,6 +7,8 @@ import Link from "next/link"
 const Navbar = async () => {
 
     const session = await auth()
+    console.log(session?.id);
+    
            
     
     
@@ -20,7 +22,7 @@ const Navbar = async () => {
             <div className="flex items-center gap-5 text-black">
                 {session && session?.user ? (  
                     <>
-                    <Button className="bg-black text-white">
+                    <Button className="bg-black hover:bg-black-100 text-white cursor-pointer">
                         <Link href="/startup/create">
                             <span>Create</span>
                         </Link>
@@ -39,7 +41,7 @@ const Navbar = async () => {
                         </Button>
                     </form>
                     
-                    <Link href={`/user/${session?.user.id}`} >
+                    <Link href={`/user/${session?.id}`} >
                         <div className="flex items-center rounded-full">
                             <Image className="rounded-full" src={`${session?.user.image}`} width={40} height={40} alt="user-image" />
                         </div>

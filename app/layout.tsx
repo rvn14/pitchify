@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import 'easymde/dist/easymde.min.css';
+import { Toaster } from "@/components/ui/sonner";
+
 
 
 
@@ -20,6 +22,7 @@ export default function RootLayout({
         className={``}
       >
         {children}
+        <Toaster />
       </body>
     </html>
   );

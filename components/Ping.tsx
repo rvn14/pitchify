@@ -12,4 +12,4 @@ const Ping = () => {
     </div>
   );
 };
-export default Ping;
+export default Ping; 
